@@ -1,0 +1,11 @@
+import { Vehicle } from '../vehicle/vehicle';
+
+export abstract class VehicleFactory {
+  //factory method
+  abstract getVehicle (name: string): Vehicle;
+  pickUp (customerName: string, vehicleName: string): Vehicle {
+    const car = this.getVehicle(vehicleName);
+    car.pickUp(customerName);
+    return car;
+  }
+}
