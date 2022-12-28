@@ -105,3 +105,43 @@ export class Dog extends Animal {
 
 const dog = new Dog();
 dog.makeSound();
+
+//method chaining
+export class Person {
+  cosntructor (public name?: string, public age?: number) {}
+}
+export class PersonBuilder {
+  private person = new Person();
+
+  newPerson () {
+    this.person = new Person();
+  }
+
+  setName (name: string) {
+    this.person.name = name;
+    return this;
+  }
+
+  setAge (age: number) {
+    this.person.age = age;
+    return this; //retorno da classe permite que encadeie metodos
+  }
+
+  getResult (): Person {
+    return this.person;
+  }
+}
+
+const personBuilder = new PersonBuilder();
+
+const person1 = personBuilder
+  .setName('paulo')
+  .setAge(36)
+  .getResult(); //method chaining
+
+personBuilder.newPerson();
+
+const person2 = personBuilder
+  .setName('andre')
+  .setAge(23)
+  .getResult();
