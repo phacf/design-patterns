@@ -10,4 +10,3 @@ const dessert = new Dessert('sorvete', 10);
 const mealBox = new ComposedMeal();
 
 mealBox.add(rice, meat, bean, beverage, dessert);
-
